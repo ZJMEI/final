@@ -1,0 +1,40 @@
+Warship
+  name : text
+  class : text #or can be a integer as a class_id
+  type: text
+  builder: text
+  operator: text
+  cost: integer
+  in_commssion: text # maybe other type, integer, timestamp?
+  speed: integer
+  image_url: text
+  description: text
+  comment: text
+
+Captain
+  name: text
+  born: integer
+  died: integer
+  rank: text
+  image_url: text
+  career: text
+  comment: text
+
+Event
+  title: text
+  date: text
+  description: text
+  image_url: text
+  comment: text
+
+Service
+  warship_id: integer
+  captain_id: integer
+  period: text
+
+Enrolled
+  warship_id: integer
+  event_id: integer
+
+User
+  name: text
