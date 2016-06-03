@@ -1,0 +1,11 @@
+<h1>Warships<h1>
+
+<% @warships.each do |warship| %>
+
+    <div class="movie-box">
+      <h3><a>Tier <%= warship.tier %></a></h3>
+      <a href="#"><%= image_tag(warship.image_url) %></a>
+      <h3><a><%= warship.name %></a></h3>
+    </div>
+
+<% end %>
