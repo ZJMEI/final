@@ -1,0 +1,32 @@
+<h1>
+    <%= @warship.name %>
+</h1>
+
+<div class="details">
+
+  <p><%= image_tag @warship.image_url, class: 'pull-right' %></p>
+
+  <p><strong>Name: </strong> <%= @warship.name %></p>
+  <p><strong>Tier: </strong> <%= @warship.tier %></p>
+  <p><strong>Type: </strong> <%= @warship.shiptype %></p>
+  <p><strong>Country: </strong> <%= @warship.country %></p>
+  <p><strong>Max Speed: </strong> <%= @warship.maxspeed %> knots</p>
+  <p><strong>Detect Range: </strong> <%= @warship.detectrange %> km</p>
+
+  <ul>
+    <p><strong>Survivability : </strong> <%= @warship.survivability %></p>
+    <p><strong>Artillery : </strong> <%= @warship.artillery %></p>
+    <p><strong>Aircraft : </strong> <%= @warship.aircraft %></p>
+    <p><strong>Torpedoes : </strong> <%= @warship.torpedoes %></p>
+    <p><strong>AA Defense : </strong> <%= @warship.aadefense %></p>
+    <p><strong>Maneuverability : </strong> <%= @warship.maneuverability %></p>
+    <p><strong>Concealment : </strong> <%= @warship.concealment %></p>
+  </ul>
+
+  <p><strong>Equipments: </strong>
+
+  <% @warship.equipments.each do |equipment| %>
+    <li><%= equipment.equiptype %> : <%= equipment.name %></li>
+  <% end %>
+
+</div>

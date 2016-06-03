@@ -21,8 +21,8 @@ Equipment
 
 
 Equipped
-  ship_id : integer
-  equip_id : integer
+  warship_id : integer
+  equipment_id : integer
   amount : integer
 
 User
@@ -34,7 +34,7 @@ User
 Review
   rating : integer(1)
   content : text
-  ship_id : integer
+  warship_id : integer
   user_id : integer
 
 Battle
@@ -45,4 +45,4 @@ Battle
 Enrolled
   user_id : integer
   battle_id : integer
-  ship_id : integer
+  warship_id : integer

@@ -22,12 +22,12 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "enrolleds", force: :cascade do |t|
     t.integer "user_id"
     t.integer "battle_id"
-    t.integer "ship_id"
+    t.integer "warship_id"
   end
 
   add_index "enrolleds", ["battle_id"], name: "index_enrolleds_on_battle_id"
-  add_index "enrolleds", ["ship_id"], name: "index_enrolleds_on_ship_id"
   add_index "enrolleds", ["user_id"], name: "index_enrolleds_on_user_id"
+  add_index "enrolleds", ["warship_id"], name: "index_enrolleds_on_warship_id"
 
   create_table "equipment", force: :cascade do |t|
     t.text  "name"
@@ -36,23 +36,23 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "equippeds", force: :cascade do |t|
-    t.integer "ship_id"
-    t.integer "equip_id"
     t.integer "amount"
+    t.integer "warship_id"
+    t.integer "equipment_id"
   end
 
-  add_index "equippeds", ["equip_id"], name: "index_equippeds_on_equip_id"
-  add_index "equippeds", ["ship_id"], name: "index_equippeds_on_ship_id"
+  add_index "equippeds", ["equipment_id"], name: "index_equippeds_on_equipment_id"
+  add_index "equippeds", ["warship_id"], name: "index_equippeds_on_warship_id"
 
   create_table "reviews", force: :cascade do |t|
-    t.integer "rating",  default: 1
+    t.integer "rating",     default: 1
     t.text    "content"
-    t.integer "ship_id"
     t.integer "user_id"
+    t.integer "warship_id"
   end
 
-  add_index "reviews", ["ship_id"], name: "index_reviews_on_ship_id"
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
+  add_index "reviews", ["warship_id"], name: "index_reviews_on_warship_id"
 
   create_table "users", force: :cascade do |t|
     t.text    "name"

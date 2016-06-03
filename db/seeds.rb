@@ -43,8 +43,8 @@ t457mmtwin.equiptype = "Torpedo"
 t457mmtwin.range = 5.0
 t457mmtwin.save
 
-Equipped.create(ship_id: umikaze.id, equip_id: b120mm40t41.id, amount: 2)
-Equipped.create(ship_id: umikaze.id, equip_id: t457mmtwin.id, amount: 2)
+Equipped.create(warship_id: umikaze.id, equipment_id: b120mm40t41.id, amount: 2)
+Equipped.create(warship_id: umikaze.id, equipment_id: t457mmtwin.id, amount: 2)
 
 zjmei = User.create(name: "zjmei", password: '11223344', XP: 234)
 
