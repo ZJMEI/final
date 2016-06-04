@@ -1,0 +1,70 @@
+<h2>Edit Warship <%= @warship.name %></h2>
+<h2>Edit Warship <%= @warship.shiptype %></h2>
+<h2>Edit Warship <%= @warship.tier %></h2>
+<h2>Edit Warship <%= @warship.country %></h2>
+
+<%= form_tag "/warships/#{@warship.id}", :method => :patch do %>
+
+  <p>
+    <label for="image_url">Link to Image:</label>
+    <br>
+    <input id="image_url" type="text" size="80" name="image_url"  value="<%= @warship.image_url %>">
+  </p>
+
+  <p>
+    <label for="survivability">Survivability:</label>
+    <input id="survivability" type="text" size="5" name="survivability"  value="<%= @warship.survivability %>">
+    /100
+  </p>
+
+  <p>
+    <label for="artillery">Artillery:</label>
+    <input id="artillery" type="text" size="5" name="artillery"  value="<%= @warship.artillery %>">
+    /100
+  </p>
+
+  <p>
+    <label for="aircraft">Aircraft:</label>
+    <input id="aircraft" type="text" size="5" name="aircraft"  value="<%= @warship.aircraft %>">
+    /100
+  </p>
+
+  <p>
+    <label for="torpedoes">Torpedoes:</label>
+    <input id="torpedoes" type="text" size="5" name="torpedoes"  value="<%= @warship.torpedoes %>">
+    /100
+  </p>
+
+  <p>
+    <label for="aadefense">AA Defense:</label>
+    <input id="aadefense" type="text" size="5" name="aadefense"  value="<%= @warship.aadefense %>">
+    /100
+  </p>
+
+  <p>
+    <label for="maneuverability">Maneuverability:</label>
+    <input id="maneuverability" type="text" size="5" name="maneuverability"  value="<%= @warship.maneuverability %>">
+    /100
+  </p>
+
+  <p>
+    <label for="concealment">Concealment:</label>
+    <input id="concealment" type="text" size="5" name="concealment"  value="<%= @warship.concealment %>">
+    /100
+  </p>
+
+  <p>
+    <label for="maxspeed">Max Speed:</label>
+    <input id="maxspeed" type="text" size="10" name="maxspeed"  value="<%= @warship.maxspeed %>">
+    knots
+  </p>
+
+  <p>
+    <label for="detectrange">Detect Range:</label>
+    <input id="detectrange" type="text" size="5" name="detectrange"  value="<%= @warship.detectrange %>">
+    km
+  </p>
+
+  <input type="submit" value="Update Warship">
+
+<% end %>

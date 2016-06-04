@@ -1,5 +1,8 @@
 <h1>
     <%= @warship.name %>
+    <small>
+      <%= link_to "Edit This Ship", edit_warship_path(@warship.id) %>
+    </small>
 </h1>
 
 <div class="details">
@@ -13,6 +16,15 @@
   <p><strong>Max Speed: </strong> <%= @warship.maxspeed %> knots</p>
   <p><strong>Detect Range: </strong> <%= @warship.detectrange %> km</p>
 
+
+  <p><strong>Equipments: </strong>
+
+  <% @warship.equippeds.each do |equipped| %>
+    <% @eqp = Equipment.find_by(id: equipped.equipment_id)%>
+    <% @amt = equipped.amount %>
+    <li><%= @eqp.equiptype %> : <%= @amt%> x <%= @eqp.name %></li>
+  <% end %>
+
   <ul>
     <p><strong>Survivability : </strong> <%= @warship.survivability %></p>
     <p><strong>Artillery : </strong> <%= @warship.artillery %></p>
@@ -23,10 +35,6 @@
     <p><strong>Concealment : </strong> <%= @warship.concealment %></p>
   </ul>
 
-  <p><strong>Equipments: </strong>
 
-  <% @warship.equipments.each do |equipment| %>
-    <li><%= equipment.equiptype %> : <%= equipment.name %></li>
-  <% end %>
 
 </div>
