@@ -7,6 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Warship.delete_all
+Country.delete_all
 Equipment.delete_all
 Equipped.delete_all
 User.delete_all
@@ -14,12 +15,16 @@ Review.delete_all
 Battle.delete_all
 Enrolled.delete_all
 
+jp = Country.create(name: "Japan", cimage_url: "umikaze.jpg")
+am = Country.create(name: "America", cimage_url: "umikaze.jpg")
+gm = Country.create(name: "Germany", cimage_url: "umikaze.jpg")
+
 umikaze = Warship.new
 umikaze.name = "Umikaze"
 umikaze.shiptype = "Destroyer"
 umikaze.image_url = "Umikaze.jpg"
 umikaze.tier = 2
-umikaze.country = "Japan"
+umikaze.country_id = jp.id
 umikaze.survivability = 10
 umikaze.artillery = 7
 umikaze.aircraft = 0
@@ -47,6 +52,8 @@ Equipped.create(warship_id: umikaze.id, equipment_id: b120mm40t41.id, amount: 2)
 Equipped.create(warship_id: umikaze.id, equipment_id: t457mmtwin.id, amount: 2)
 
 zjmei = User.create(name: "zjmei", password: '11223344', XP: 234)
+
+Battle.create(map: "Big Race", btype: "Random Battle", date: "2010-1-1 13:00:00", winner: "Blue")
 
 print "There are now #{Warship.count} warships in the database.\n"
 print "There are now #{Equipment.count} equipments in the database.\n"

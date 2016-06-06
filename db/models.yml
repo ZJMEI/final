@@ -3,7 +3,7 @@ Warship
   shiptype : text
   image_url : text
   tier : integer
-  country : text
+  country_id : integer
   survivability : integer
   artillery : integer
   aircraft : integer
@@ -13,6 +13,11 @@ Warship
   concealment : integer
   maxspeed : double
   detectrange : double
+
+Country
+  name : text
+  description : text
+  cimage_url : text
 
 Equipment
   name : text
@@ -39,6 +44,7 @@ Review
 
 Battle
   map : text
+  btype: text
   date : datetime
   winner  : text
 

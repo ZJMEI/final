@@ -1,0 +1,5 @@
+<ul>
+  <% @countrys.each do |country| %>
+    <li><%= link_to country.name, "/countrys/#{country.id}" %><li>
+  <% end %>
+</ul>

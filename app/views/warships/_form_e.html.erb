@@ -1,0 +1,27 @@
+<%= form_for @warship do |form| %>
+
+  <p>
+    <%= form.label :tier %>
+    <br>
+    <%= form.text_field :tier, type: 'number', size: 10 %>
+  </p>
+
+  <p>
+    <%= form.label :image_url, 'Link to Image' %>
+    <br>
+    <%= form.text_field :image_url, size: 80 %>
+  </p>
+
+  <p><%= form.label :'Survivability:' %>  <%= form.text_field :survivability, type: 'number', size: 10 %>/100</p>
+  <p><%= form.label :'Artillery:' %><%= form.text_field :artillery, type: 'number', size: 10 %>/100</p>
+  <p><%= form.label :'Aircraft:' %><%= form.text_field :aircraft, type: 'number', size: 10 %>/100</p>
+  <p><%= form.label :'Torpedoes:' %><%= form.text_field :torpedoes, type: 'number', size: 10 %>/100</p>
+  <p><%= form.label :'AA Defense:' %><%= form.text_field :aadefense, type: 'number', size: 10 %>/100</p>
+  <p><%= form.label :'Maneuverability:' %><%= form.text_field :maneuverability, type: 'number', size: 10 %>/100</p>
+  <p><%= form.label :'Concealment:' %><%= form.text_field :concealment, type: 'number', size: 10 %>/100</p>
+  <p><%= form.label :'Max Speed' %><%= form.text_field :maxspeed, size: 10 %>knots</p>
+  <p><%= form.label :'Detect Range' %><%= form.text_field :detectrange, size: 10 %>KM</p>
+
+  <%= form.submit %>
+
+<% end %>

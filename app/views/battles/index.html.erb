@@ -1,0 +1,5 @@
+<ul>
+  <% @battles.each do |battle| %>
+    <li><%= link_to battle.date, "/battles/#{battle.id}" %></li>
+  <% end %>
+</ul>

@@ -2,25 +2,43 @@ class WarshipsController < ApplicationController
 
   def index
     @warships = Warship.all
+    if params[:keyword].present?
+      @warships = @warships.where("name LIKE '%#{params[:keyword]}%'")
+    end
+
+    respond_to do |format|
+      format.html do
+        render 'index'
+      end
+      format.json do
+        render json: @movies
+      end
+      format.xml do
+        render xml: @movies
+      end
+    end
+
+
   end
 
   def create
     warship = Warship.new
-    warship.name = params[:name]
-    warship.shiptype = params[:shiptype]
-    warship.image_url = params[:image_url]
-    warship.tier = params[:tier]
-    warship.country = params[:country]
-    warship.survivability = params[:survivability]
-    warship.artillery = params[:artillery]
-    warship.aircraft = params[:aircraft]
-    warship.torpedoes = params[:torpedoes]
-    warship.aadefense = params[:aadefense]
-    warship.maneuverability = params[:maneuverability]
-    warship.concealment = params[:concealment]
-    warship.maxspeed = params[:maxspeed]
-    warship.detectrange = params[:detectrange]
+    warship.name = params[:warship][:name]
+    warship.shiptype = params[:warship][:shiptype]
+    warship.image_url = params[:warship][:image_url]
+    warship.tier = params[:warship][:tier]
+    warship.country_id = params[:warship][:country_id]
+    warship.survivability = params[:warship][:survivability]
+    warship.artillery = params[:warship][:artillery]
+    warship.aircraft = params[:warship][:aircraft]
+    warship.torpedoes = params[:warship][:torpedoes]
+    warship.aadefense = params[:warship][:aadefense]
+    warship.maneuverability = params[:warship][:maneuverability]
+    warship.concealment = params[:warship][:concealment]
+    warship.maxspeed = params[:warship][:maxspeed]
+    warship.detectrange = params[:warship][:detectrange]
     warship.save
+    redirect_to warships_url
   end
 
   def show
@@ -31,7 +49,7 @@ class WarshipsController < ApplicationController
   end
 
   def new
-
+    @warship = Warship.new
   end
 
   def edit
@@ -40,16 +58,16 @@ class WarshipsController < ApplicationController
 
   def update
     warship = Warship.find_by(id: params[:id])
-    warship.image_url = params[:image_url]
-    warship.survivability = params[:survivability]
-    warship.artillery = params[:artillery]
-    warship.aircraft = params[:aircraft]
-    warship.torpedoes = params[:torpedoes]
-    warship.aadefense = params[:aadefense]
-    warship.maneuverability = params[:maneuverability]
-    warship.concealment = params[:concealment]
-    warship.maxspeed = params[:maxspeed]
-    warship.detectrange = params[:detectrange]
+    warship.image_url = params[:warship][:image_url]
+    warship.survivability = params[:warship][:survivability]
+    warship.artillery = params[:warship][:artillery]
+    warship.aircraft = params[:warship][:aircraft]
+    warship.torpedoes = params[:warship][:torpedoes]
+    warship.aadefense = params[:warship][:aadefense]
+    warship.maneuverability = params[:warship][:maneuverability]
+    warship.concealment = params[:warship][:concealment]
+    warship.maxspeed = params[:warship][:maxspeed]
+    warship.detectrange = params[:warship][:detectrange]
     warship.save
     redirect_to warships_url(@warship)
   end

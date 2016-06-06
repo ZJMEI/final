@@ -8,6 +8,22 @@
 </head>
 <body>
 
+  <nav>
+    <ul>
+      <li><%= link_to "Warships", warships_url %></li>
+      <li><%= link_to "Countrys", countrys_url %></li>
+      <li><%= link_to "RecentBattles", "/battles" %></li>
+    </ul>
+    <ul class="nav-right">
+      <% if cookies["user_id"].present? %>
+        <li><%= link_to "Sign Out", logout_path %></li>
+      <% else %>
+        <li><%= link_to "Sign Up", new_user_path %></li>
+        <li><%= link_to "Sign In", login_path %></li>
+      <% end %>
+    </ul>
+  </nav>
+
 <%= yield %>
 
 </body>

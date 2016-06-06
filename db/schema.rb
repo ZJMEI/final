@@ -17,6 +17,13 @@ ActiveRecord::Schema.define(version: 0) do
     t.text     "map"
     t.datetime "date"
     t.text     "winner"
+    t.text     "btype"
+  end
+
+  create_table "countries", force: :cascade do |t|
+    t.text "name"
+    t.text "cimage_url"
+    t.text "description"
   end
 
   create_table "enrolleds", force: :cascade do |t|
@@ -73,8 +80,10 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "concealment"
     t.float   "maxspeed"
     t.float   "detectrange"
-    t.text    "country"
     t.text    "shiptype"
+    t.integer "country_id"
   end
+
+  add_index "warships", ["country_id"], name: "index_warships_on_country_id"
 
 end
