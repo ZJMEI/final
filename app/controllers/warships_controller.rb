@@ -3,19 +3,7 @@ class WarshipsController < ApplicationController
   def index
     @warships = Warship.all
     if params[:keyword].present?
-      @warships = @warships.where("name LIKE '%#{params[:keyword]}%'")
-    end
-
-    respond_to do |format|
-      format.html do
-        render 'index'
-      end
-      format.json do
-        render json: @movies
-      end
-      format.xml do
-        render xml: @movies
-      end
+      @warships = @warships.where("name LIKE ?", "%#{params[:keyword]}%")
     end
 
 
@@ -44,7 +32,7 @@ class WarshipsController < ApplicationController
   def show
     @warship = Warship.find_by(id: params[:id])
     if @warship == nil
-      redirect_to "http://localhost:3000/movies"
+      redirect_to warships_url
     end
   end
 

@@ -6,16 +6,15 @@ class SessionsController < ApplicationController
     user = User.find_by(name: params[:name])
     if user
       if user.password == params[:password]
-        cookies["user_id"] = user.id
+        session["user_id"] = user.id
         redirect_to countrys_url
         return
       end
     end
-    redirect_to countrys_url
+    redirect_to login_url, notice: "Incorrect username or password"
   end
 
   def destroy
-    cookies.delete("user_id")
     reset_session
     redirect_to countrys_url
   end

@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "user_id"
     t.integer "battle_id"
     t.integer "warship_id"
+    t.text    "team"
   end
 
   add_index "enrolleds", ["battle_id"], name: "index_enrolleds_on_battle_id"
@@ -65,6 +66,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.text    "name"
     t.integer "XP"
     t.text    "password"
+    t.boolean "administrator", default: false
   end
 
   create_table "warships", force: :cascade do |t|

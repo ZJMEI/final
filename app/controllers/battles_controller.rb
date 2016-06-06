@@ -9,6 +9,7 @@ class BattlesController < ApplicationController
   end
 
   def new
+    @battle = Battle.new
   end
 
   def create
@@ -21,6 +22,7 @@ class BattlesController < ApplicationController
   end
 
   def destroy
+    User.delete(params[:id])
   end
 
 end

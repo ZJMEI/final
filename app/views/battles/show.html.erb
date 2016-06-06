@@ -1,3 +1,24 @@
 <h1><%= @battle.map %> - <%= @battle.btype %></h1>
 <h3>Winner: <%= @battle.winner %></h3>
 <h3>Battle start time: <%= @battle.date %></h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Player</th>
+      <th>Warship</th>
+      <th>Team</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @battle.enrolleds.each do |enrolled| %>
+      <% if enrolled.user.present? %>
+        <tr>
+          <td><%= enrolled.user.name %></td>
+          <td><%= link_to enrolled.warship.name, warship_path(enrolled.warship.id) %></td>
+          <td><%= enrolled.team %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

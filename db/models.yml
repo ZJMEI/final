@@ -33,6 +33,7 @@ Equipped
 User
   name : text
   password : text
+  administrator : boolean
   XP : integer
 
 
@@ -52,3 +53,4 @@ Enrolled
   user_id : integer
   battle_id : integer
   warship_id : integer
+  team : text

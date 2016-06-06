@@ -1,0 +1,27 @@
+<h1>Players</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Password</th>
+        <th>Administrator</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= user.password %></td>
+          <td><%= user.administrator %></td>
+          <% if session["user_id"].present? %>
+            <% current_user = User.find_by(id: session["user_id"]) %>
+            <% if current_user.administrator == true %>
+              <td><%= link_to "Delete", user_path(user), method: :delete, data: { confirm: "This will delete all the record about this player(including match history), are you sure?" } %></td>
+            <% end %>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>

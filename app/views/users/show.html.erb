@@ -1,0 +1,36 @@
+<h1>My Profile</h1>
+
+<% if @user.id == session[:user_id].to_i %>
+  <p>Username: <%= @user.name %></p>
+  <p>Password: <%= @user.password %></p>
+  <p>XP: <%= @user.XP %></P>
+  <p>Administrator: <%= @user.administrator %></p>
+<% else %>
+  <h3>You should not be here!</h3>
+<% end %>
+
+
+<h3>My Recent Matches</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Map Name</th>
+        <th>Match Type</th>
+        <th>Winner</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user.battles.each do |battle| %>
+        <tr>
+          <td><%= battle.date %></td>
+          <td><%= battle.map %></td>
+          <td><%= battle.btype %></td>
+          <td><%= battle.winner %></td>
+          <td><%= link_to "Details", battle_path(battle) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>

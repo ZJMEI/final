@@ -1,15 +1,6 @@
 <h1>Warships<h1>
 
-  <div class="movie-box">
-  <!-- <a href="/movies/new"><%= image_tag 'add_new.png' %></a> -->
-  <%= link_to image_tag('add_new.png'), new_warship_path %>
+<div class="movie-selections">
+  <%= render 'warship', warship: nil %>
+  <%= render @warships %>
 </div>
-
-<% @warships.each do |warship| %>
-
-    <div class="movie-box">
-      <%= link_to image_tag(warship.image_url), warship_path(warship.id) %>
-      <h3><a>T<%= warship.tier %>: <%= link_to warship.name, warship_path(warship.id) %></a></h3>
-    </div>
-
-<% end %>

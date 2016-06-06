@@ -1,0 +1,9 @@
+<% img_url = warship ? warship.image_url : 'add_new.jpg' %>
+<% path = warship ? warship_path(warship.id) : new_warship_path %>
+
+<div class="movie-box">
+  <%= link_to image_tag(img_url), path %>
+  <% if warship %>
+    <h3><%= link_to warship.name, warship_path(warship.id) %></h3>
+  <% end %>
+</div>

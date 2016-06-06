@@ -1,13 +1,20 @@
 <h1>
     <%= @warship.name %>
     <small>
-      <%= link_to "Edit This Ship", edit_warship_path(@warship.id) %>
+      <% if session["user_id"].present? %>
+        <% current_user = User.find_by(id: session["user_id"]) %>
+        <% if current_user.administrator == true %>
+          <%= link_to "Edit This Ship", edit_warship_path(@warship.id) %>
+        <% end %>
+      <% end %>
     </small>
 </h1>
 
+  <p><%= image_tag @warship.image_url, class: 'pull-right' %></p>
+
 <div class="details">
 
-  <p><%= image_tag @warship.image_url, class: 'pull-right' %></p>
+
 
   <p><strong>Name: </strong> <%= @warship.name %></p>
   <p><strong>Tier: </strong> <%= @warship.tier %></p>
@@ -25,6 +32,7 @@
     <li><%= @eqp.equiptype %> : <%= @amt%> x <%= @eqp.name %></li>
   <% end %>
 
+<aside>
   <ul>
     <p><strong>Survivability : </strong> <%= @warship.survivability %></p>
     <p><strong>Artillery : </strong> <%= @warship.artillery %></p>
@@ -34,6 +42,35 @@
     <p><strong>Maneuverability : </strong> <%= @warship.maneuverability %></p>
     <p><strong>Concealment : </strong> <%= @warship.concealment %></p>
   </ul>
+</aside>
+
+  <h3>Reviews</h3>
+
+  <% @warship.reviews.each do |review| %>
+    <% if review.user.present? %>
+      <p><strong><%= review.rating %></strong> by <%= review.user.name %></p>
+      <p><%= review.content %></p>
+    <% end %>
+  <% end %>
+
+  <% if session["user_id"].present? %>
+    <% current_user = User.find_by(id: session["user_id"]) %>
+
+      <h3>Add a Review</h3>
+
+        <%= form_tag "/reviews", :method => :post do %>
+          <%= label_tag :body, "What did you think about this ship?" %>
+          <%= hidden_field_tag :warship_id, @warship.id %>
+          <%= hidden_field_tag :user_id, current_user.id %>
+          <%= hidden_field_tag :rating, 3 %>
+
+          <br>
+          <%= text_area_tag :content, '', rows: 4, cols: 50 %>
+          <br>
+          <%= submit_tag "Add Review" %>
+          <% end %>
+    <% end %>
+
 
 
 
