@@ -12,7 +12,7 @@
     <ul>
       <li><%= link_to "Warships", warships_url %></li>
       <li><%= link_to "Countrys", countrys_url %></li>
-      <li><%= link_to "RecentBattles", battles_path %></li>
+      <li><%= link_to "Recent Battles", battles_path %></li>
       <li><%= link_to "Players", users_path %></li>
       <%= form_tag warships_url, :method => :get do %>
         <%= text_field_tag :keyword, '', placeholder: 'Search by name...' %>

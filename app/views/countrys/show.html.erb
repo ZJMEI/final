@@ -1,13 +1,16 @@
 <h1><%= @country.name %></h1>
 
+<p class="pull-right" ><%= @country.description %></p>
+
 <div class="details">
   <%= image_tag @country.cimage_url, class: 'pull-right', width: '200px' %>
+
 
   <h3>Tech Tree</h3>
   </ul>
     <% warships = Warship.where(country_id: @country.id) %>
     <% warships.each do |warship| %>
-      <li><%= link_to warship.name, warship_path(warship.id) %></li>
+      <li><%= link_to image_tag(warship.image_url), warship_path(warship.id)%><%= link_to warship.name, warship_path(warship.id) %></li>
       <% end %>
   </ul>
 

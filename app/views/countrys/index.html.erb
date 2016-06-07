@@ -1,5 +1,10 @@
-<ul>
-  <% @countrys.each do |country| %>
-    <li><%= link_to country.name, "/countrys/#{country.id}" %><li>
-  <% end %>
-</ul>
+<h1>View by Country</h1>
+
+<% @countrys.each do |country| %>
+    <div class="movie-box">
+      <%= link_to image_tag(country.cimage_url), country_path(country.id) %>
+      <% if country %>
+        <h3><%= link_to country.name, country_path(country.id) %></h3>
+      <% end %>
+    </div>
+<% end %>

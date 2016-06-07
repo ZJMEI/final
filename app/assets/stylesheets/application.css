@@ -75,7 +75,7 @@
  .movie-box {
    float: left;
    width: 240px;
-   height: 400px;
+   height: 200px;
    padding: 20px;
    padding-left: 0px;
    text-align: center;
@@ -86,8 +86,8 @@
    margin: auto auto;
    display: block;
    box-shadow: 8px 8px 8px #999;
-   width: 202px;
-   height: 317px;
+   width: 214;
+   height: 126;
  }
 
  input, textarea {
