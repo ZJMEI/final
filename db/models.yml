@@ -33,7 +33,7 @@ Equipped
 User
   name : text
   password : text
-  administrator : boolean
+  administrator : boolean(false)
   XP : integer
 
 

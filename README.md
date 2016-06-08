@@ -1,14 +1,15 @@
-# MPCS52553 Web-Development
-# Final Project
-# by ZHANGJUN MEI
-# CNet: meiz
+# MPCS52553 Web-Development Final Project
+- by ZHANGJUN MEI
+- CNet: meiz
 
-- I'm going to build a wikipedia, maybe mainly about warships during the World War II(Because I am interested in the game World of Warships). It will contain the basic information about the warships, some famous captain or admiral, and also some famous event in the history.
-- User may modify item only if they have the access, but they will be free to comment.
-- The database will contain mainly 5(or 6) parts:
-  *Warship(or maybe two model, one for warship class and one for warship)
-  *Person(captain)
-  *Event
-  *Service (captain - warship)
-  *Enrolled (warship - event)
-  *User
+1. This is a simple wikipedia of game "World of Warship". User can check details of different ships, watch his profile and see the details of recent matches.
+
+2. For convenience, the Players page shows password of registered player. Only administrator user can edit warship, delete warship and delete other player.
+
+3. The main page "Warships" lists all the data of all the ships.
+
+4. Country page lists ships in order of country.
+
+5. User can add review to warship once it log in.
+
+6. At the show page of warships, there is link to the official database site of WOWs, which shows more details of that ship.

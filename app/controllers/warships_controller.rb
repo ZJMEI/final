@@ -3,7 +3,7 @@ class WarshipsController < ApplicationController
   def index
     @warships = Warship.all
     if params[:keyword].present?
-      @warships = @warships.where("name LIKE ?", "%#{params[:keyword]}%")
+      @warships = @warships.where("name LIKE ? OR SHIPTYPE LIKE ?", "%#{params[:keyword]}%", "%#{params[:keyword]}%")
     end
 
 
@@ -26,7 +26,7 @@ class WarshipsController < ApplicationController
     warship.maxspeed = params[:warship][:maxspeed]
     warship.detectrange = params[:warship][:detectrange]
     warship.save
-    redirect_to warships_url
+    redirect_to warships_url, notice: "ship created successfully"
   end
 
   def show
@@ -46,6 +46,7 @@ class WarshipsController < ApplicationController
 
   def update
     warship = Warship.find_by(id: params[:id])
+    warship.tier = params[:warship][:tier]
     warship.image_url = params[:warship][:image_url]
     warship.survivability = params[:warship][:survivability]
     warship.artillery = params[:warship][:artillery]
@@ -57,15 +58,16 @@ class WarshipsController < ApplicationController
     warship.maxspeed = params[:warship][:maxspeed]
     warship.detectrange = params[:warship][:detectrange]
     warship.save
-    redirect_to warships_url(@warship)
+    redirect_to warship_path(params[:id]), notice: "ship edited successfully"
   end
 
   def destroy
     warship = Warship.find_by(id: params[:id])
+    @cid = warship.country_id
     if warship
       warship.delete
     end
-    redirect_to warships_url
+    redirect_to country_path(@cid), notice: "ship deleted successfully"
   end
 
 end

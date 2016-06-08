@@ -15,7 +15,7 @@
       <li><%= link_to "Recent Battles", battles_path %></li>
       <li><%= link_to "Players", users_path %></li>
       <%= form_tag warships_url, :method => :get do %>
-        <%= text_field_tag :keyword, '', placeholder: 'Search by name...' %>
+        <%= text_field_tag :keyword, '', placeholder: 'Search by name or ship type...' %>
       <% end %>
     </ul>
     <ul class="nav-right">

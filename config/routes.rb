@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'warships#index'
+  root 'countrys#index'
 
   resources :warships
   resources :countrys

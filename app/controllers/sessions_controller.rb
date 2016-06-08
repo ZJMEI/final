@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if user
       if user.password == params[:password]
         session["user_id"] = user.id
-        redirect_to countrys_url
+        redirect_to user_path(user)
         return
       end
     end

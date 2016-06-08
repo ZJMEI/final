@@ -15,8 +15,15 @@
   <p>
     <%= form.label :type %>
     <br>
-    <%= form.text_field :shiptype, size: 30 %>
+    <select id="shiptype" name="type">
+      <option value="Destroyer">Destroyer</option>
+      <option value="Cruiser">Cruiser</option>
+      <option value="Battleship">Battleship</option>
+      <option value="Aircraft Carrier">Aircraft Carrier</option>
+    </select>
   </p>
+
+
 
   <p>
     <%= form.label :country %>

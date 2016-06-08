@@ -12,7 +12,7 @@
   </thead>
   <tbody>
     <% @battle.enrolleds.each do |enrolled| %>
-      <% if enrolled.user.present? %>
+      <% if enrolled.user.present? && enrolled.warship.present? %>
         <tr>
           <td><%= enrolled.user.name %></td>
           <td><%= link_to enrolled.warship.name, warship_path(enrolled.warship.id) %></td>
